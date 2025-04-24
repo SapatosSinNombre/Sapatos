@@ -5,7 +5,9 @@ const Ordenes = () => {
     <>
       {/* MasterLayout */}
       <MasterLayout role="proveedor">
+      <div id="OrdenesProveedor">
         <h1>Ordenes</h1>
+        </div>
       </MasterLayout>
     </>
   );

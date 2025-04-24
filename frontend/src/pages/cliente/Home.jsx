@@ -1,11 +1,13 @@
 import MasterLayout from "../../components/masterLayout";
 
 const HomeCliente = () => {
-  return (
+return (
     <>
       {/* MasterLayout */}
       <MasterLayout role="cliente">
-        <h1>Ordenes</h1>
+        <div id="homeClientePage">
+        <h1>Usuarios</h1>
+        </div>
       </MasterLayout>
     </>
   );

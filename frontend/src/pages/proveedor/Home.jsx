@@ -5,7 +5,9 @@ const HomeProveedor = () => {
     <>
       {/* MasterLayout */}
       <MasterLayout role="proveedor">
+      <div id="homeProveedorPage">
         <h1>Estadisticas</h1>
+        </div>
       </MasterLayout>
     </>
   );

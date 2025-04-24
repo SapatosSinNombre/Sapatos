@@ -5,7 +5,9 @@ const Inventario = () => {
   return (
     <>
       <MasterLayout role="admin">
+        <div id="inventarioAdmin">
         <h1>Inventario</h1>
+        </div>
         <Inventory />
       </MasterLayout>
     </>
