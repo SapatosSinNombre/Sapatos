@@ -20,6 +20,17 @@ import HomeProveedor from "./pages/proveedor/Home";
 import InventarioProveedor from "./pages/proveedor/Inventario"
 import OrdenesProveedor from "./pages/proveedor/Ordenes"
 
+<<<<<<< Updated upstream
+=======
+import Pedidos from "./pages/admin/Pedidos"
+
+// Para usuarios admin 
+import Usuarios from "./pages/admin/UsuarioPagina";
+import UsuariosShec from "./pages/admin/UsuariosShec";
+import AddUserLayer from "./components/AddUserLayer";
+import InvoiceAddLayer from "./components/InvoiceAddLayer";
+
+>>>>>>> Stashed changes
 const App = () => {
   const [role, setRole] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -120,7 +131,27 @@ const App = () => {
             <Navigate to="/" />
           }
         />
+<<<<<<< Updated upstream
       </Routes>
+=======
+        <Route 
+          path="/agregar-usuario" 
+          element={
+            role === "admin" ? <AddUserLayer /> :
+            <Navigate to="/" />
+          } 
+        />
+        <Route 
+          path="/crearpedido" 
+          element={
+            role === "admin" ? <InvoiceAddLayer /> :
+            <Navigate to="/" />
+          } 
+        />
+
+
+      </Routes> 
+>>>>>>> Stashed changes
     </BrowserRouter>
   );
 };
