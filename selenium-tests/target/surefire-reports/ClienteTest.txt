@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ClienteTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 20.314 s - in ClienteTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 26.523 s - in ClienteTest

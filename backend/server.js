@@ -4,12 +4,20 @@ const app = require("./app");
 
 const PORT = process.env.BACK_PORT || 5000;
 
-app.listen(PORT, async () => {
+const startServer = async () => {
   try {
-    await connectDB(); // Ensure DB connection before starting
-    console.log(`Connected to port 443`);
+    await connectDB(); 
+    if (process.env.NODE_ENV !== 'test') {
+      app.listen(PORT, () => {
+        console.log(`Connected to port 443`);
+      });
+    }
   } catch (error) {
     console.error("Database connection failed", error);
     process.exit(1);
   }
-});
+};
+
+startServer();
+
+module.exports = app; // <-- Exportar app para supertest

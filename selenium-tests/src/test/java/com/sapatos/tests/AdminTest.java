@@ -39,7 +39,7 @@ public void testAdminAccessAndNavigation() throws InterruptedException {
 
     WebElement inventarioPage = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("inventarioAdmin")));
     Assertions.assertTrue(inventarioPage.isDisplayed());
-    Thread.sleep(1000);
+    Thread.sleep(3000);
 
     WebElement dashboardBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("sidebarButton-dashboard")));
     dashboardBtn.click();

@@ -26,6 +26,9 @@ app.use("/users", userRoutes);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs)); 
 
 
+
+
+
 // inventory routes
 app.use("/inventory", inventoryRoutes);
 
