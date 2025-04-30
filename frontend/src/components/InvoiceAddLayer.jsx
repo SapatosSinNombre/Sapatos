@@ -13,14 +13,13 @@ const InvoiceAddLayer = () => {
     setPedidoID(nuevoID);
     setPedidoEnviado(true);
 
-    // Simulamos que el pedido se guarda correctamente
     setTimeout(() => {
-      navigate("/pedidos"); // Redireccionar a la página de pedidos
-    }, 2500); // Redirige después de 2.5 segundos
+      navigate("/invoice-list");
+    }, 2500);
   };
 
   const generarIDPedido = () => {
-    const random = Math.floor(Math.random() * 900000) + 100000; // Genera un número de 6 dígitos
+    const random = Math.floor(Math.random() * 900000) + 100000;
     return `#${random}`;
   };
 
@@ -31,7 +30,7 @@ const InvoiceAddLayer = () => {
         {pedidoEnviado && (
           <div className='alert alert-success text-sm mb-4'>
             <Icon icon='mdi:check-circle-outline' className='me-2 text-lg' />
-            Pedido {pedidoID} enviado con éxito.
+            Pedido {pedidoID} enviado con éxito. Redirigiendo a la lista de pedidos...
           </div>
         )}
         <div className='row justify-content-center'>
@@ -47,20 +46,36 @@ const InvoiceAddLayer = () => {
   );
 };
 
-const EncabezadoFormulario = ({ onEnviar }) => (
-  <div className='card-header'>
-    <div className='d-flex flex-wrap align-items-center justify-content-end gap-2'>
-      <button
-        type='button'
-        onClick={onEnviar}
-        className='btn btn-sm btn-primary-600 radius-8 d-inline-flex align-items-center gap-1'
-      >
-        <Icon icon='mdi:send' className='text-xl' />
-        Enviar Pedido
-      </button>
+const EncabezadoFormulario = ({ onEnviar }) => {
+  const navigate = useNavigate();
+
+  const handleCancelar = () => {
+    navigate("/pedidos");
+  };
+
+  return (
+    <div className='card-header'>
+      <div className='d-flex flex-wrap align-items-center justify-content-end gap-2'>
+        <button
+          type='button'
+          onClick={handleCancelar}
+          className='btn btn-sm btn-danger radius-8 d-inline-flex align-items-center gap-1'
+        >
+          <Icon icon='ic:round-close' className='text-xl' />
+          Cancelar
+        </button>
+        <button
+          type='button'
+          onClick={onEnviar}
+          className='btn btn-sm btn-primary-600 radius-8 d-inline-flex align-items-center gap-1'
+        >
+          <Icon icon='mdi:send' className='text-xl' />
+          Enviar Pedido
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const InformacionPedido = ({ pedidoID }) => {
   const fechaHoy = new Date().toLocaleDateString("es-MX");
@@ -129,7 +144,6 @@ const TablaProductos = () => {
 
   return (
     <div className='py-28 px-20'>
-      {/* Dropdown de proveedor */}
       <div className='mb-20 d-flex align-items-center gap-3'>
         <label className='text-sm fw-medium'>Proveedor:</label>
         <select
@@ -146,7 +160,6 @@ const TablaProductos = () => {
         </select>
       </div>
 
-      {/* Tabla de productos */}
       <div className='table-responsive scroll-sm'>
         <table className='table bordered-table text-sm'>
           <thead>
@@ -190,12 +203,8 @@ const TablaProductos = () => {
         </table>
       </div>
 
-      {/* Resumen de Totales */}
       <div className='d-flex flex-wrap justify-content-between gap-3 mt-24'>
         <div>
-          <p className='text-sm mb-0'>
-            <span className='text-primary-light fw-semibold'>Vendido por:</span> Jammal
-          </p>
           <p className='text-sm mb-0'>¡Gracias por su preferencia!</p>
         </div>
         <div>
