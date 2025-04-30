@@ -1,8 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import Swal from "sweetalert2";
+
+const pedidosBase = [
+  { id: "#526534", proveedor: "GUCCI", fecha: "25 Ene 2024", cantidad: 200, estatus: "Completado" },
+  { id: "#696589", proveedor: "Bershka", fecha: "25 Ene 2024", cantidad: 200, estatus: "Completado" },
+  { id: "#256584", proveedor: "Tommy", fecha: "10 Feb 2024", cantidad: 100, estatus: "Completado" },
+  { id: "#526587", proveedor: "ZARA", fecha: "10 Feb 2024", cantidad: 300, estatus: "Completado" },
+  { id: "#105986", proveedor: "GUCCI", fecha: "15 Mar 2024", cantidad: 250, estatus: "Pendiente" },
+  { id: "#526589", proveedor: "GUCCI", fecha: "15 Mar 2024", cantidad: 248, estatus: "En Reparto" },
+  { id: "#526520", proveedor: "ZARA", fecha: "27 Abr 2024", cantidad: 400, estatus: "Completado" },
+  { id: "#256584", proveedor: "Tommy", fecha: "27 Abr 2024", cantidad: 600, estatus: "Pendiente" },
+  { id: "#200257", proveedor: "Michael Kors", fecha: "30 Abr 2024", cantidad: 200, estatus: "Completado" },
+  { id: "#526525", proveedor: "Tommy", fecha: "30 Abr 2024", cantidad: 500, estatus: "Completado" },
+];
 
 const InvoiceListLayer = () => {
   const [pedidos, setPedidos] = useState(pedidosBase);
@@ -41,18 +52,6 @@ const InvoiceListLayer = () => {
             <span className="icon">
               <Icon icon="ion:search-outline" />
             </span>
-          </div>
-          <div>
-            <select 
-              className="form-select form-select-sm" 
-              value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value)}
-            >
-              <option value="">Todos los estados</option>
-              <option value="Completado">Completado</option>
-              <option value="Pendiente">Pendiente</option>
-              <option value="En Reparto">En Reparto</option>
-            </select>
           </div>
         </div>
         <div className="d-flex flex-wrap align-items-center gap-3">
