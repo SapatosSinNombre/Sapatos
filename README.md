@@ -1,3 +1,12 @@
+## Updated Branch
+
+Before running the script, ensure you're working with the latest version by pulling changes from the `axeldev` branch:
+
+```bash
+git checkout axeldev
+git pull origin axeldev
+```
+
 ## Prerequisites  
 Before running the project, ensure you have the following:  
 
