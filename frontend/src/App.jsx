@@ -19,6 +19,13 @@ import InventarioCliente from "./pages/cliente/Inventario"
 import HomeProveedor from "./pages/proveedor/Home";
 import OrdenesProveedor from "./pages/proveedor/Ordenes"
 
+import Pedidos from "./pages/admin/Pedidos"
+
+// Para usuarios admin 
+import UsuariosShec from "./pages/admin/UsuariosShec";
+import AddUserLayer from "./components/AddUserLayer";
+import InvoiceAddLayer from "./components/InvoiceAddLayer";
+
 const App = () => {
   const [role, setRole] = useState(null); // Initially null
   const [loading, setLoading] = useState(true); // Loading state
@@ -115,8 +122,38 @@ const App = () => {
             <Navigate to="/"/>
             }
           />
-      </Routes>
+        <Route 
+          path="/pedidos" 
+          element={
+            role === "admin" ? <Pedidos/> :
+            <Navigate to="/"/>
+            }
+          />
+        <Route 
+          path="/usuarios" 
+          element={
+            role === "admin" ? <UsuariosShec /> :
+            <Navigate to="/" />
+          } 
+        />
+        <Route 
+          path="/agregar-usuario" 
+          element={
+            role === "admin" ? <AddUserLayer /> :
+            <Navigate to="/" />
+          } 
+        />
+
+        <Route 
+          path="/crearpedido" 
+          element={
+            role === "admin" ? <InvoiceAddLayer /> :
+            <Navigate to="/" />
+          } 
+        />
+      </Routes> 
     </BrowserRouter>
+
   );
 };
 
