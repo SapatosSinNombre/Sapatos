@@ -4,6 +4,7 @@
   "main": "db.js",
   "scripts": {
     "lint": "eslint .",
+    "test": "jest",
     "start": "node server.js"
   },
   "keywords": [],
