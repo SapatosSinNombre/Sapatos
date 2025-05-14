@@ -43,6 +43,7 @@ jobs:
         JWT_SECRET: ${{ secrets.JWT_SECRET }}
         BACK_PORT: ${{ secrets.BACK_PORT }}
     
+        
     - name: Deploy to Railway
       if: success()
       env:
