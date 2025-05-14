@@ -53,7 +53,5 @@ jobs:
         JWT_SECRET: ${{ secrets.JWT_SECRET }}
         BACK_PORT: ${{ secrets.BACK_PORT }}
       run: |
-        # Instalar Railway CLI si no está instalado
         npm install -g @railway/cli
-        # Desplegar en Railway
         railway up
