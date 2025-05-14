@@ -67,7 +67,7 @@ const App = () => {
   // Show a loading indicator while waiting for the role
   if (loading) {
     console.log("Loading...");
-    return <div>Loading...</div>;
+    return <div>Loading....</div>;
   }
 
   return (
